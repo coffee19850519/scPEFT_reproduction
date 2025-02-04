@@ -62,7 +62,7 @@ Scripts to reproduce results obtained in the manuscript
 | PBMC_10K      | [PBMC_10K](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/PBMC_10K.h5ad?csf=1&web=1&e=S7rEMp) |
 | Perirhinal Cortex | [Perirhinal Cortex](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/Perirhinal%20Cortex.h5ad?csf=1&web=1&e=uJmNcg) |
 | covid_batch | [covid_batch](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/covid_subsampled.h5ad?csf=1&web=1&e=XwYAZJ) |
-| BMMC&CD+34enrished | [BMMC&CD+34enrished](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/cell_population_discovery/immune.h5ad?csf=1&web=1&e=cUcHrK) |
+| BMMC&CD+34Enriched | [BMMC&CD+34Enriched](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/cell_population_discovery/immune.h5ad?csf=1&web=1&e=cUcHrK) |
 | adamson       | [adamson](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/adamson?csf=1&web=1&e=PzTR8l) |
 | norman        | [norman](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/norman?csf=1&web=1&e=IEJ3ZF) |
 
