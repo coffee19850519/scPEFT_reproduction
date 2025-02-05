@@ -141,7 +141,7 @@ elif dataset_name == "covid_subsampled":
     data_is_raw = True
     n_hvg = None
 
-elif dataset_name == "Perirhinal Cortex":
+elif dataset_name == "Perirhinal_Cortex":
     adata = sc.read(data_dir / f"{dataset_name}.h5ad")
     ori_batch_col = "sample_id"
     adata.obs["celltype"] = adata.obs["cell_type"].astype("category")
