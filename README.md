@@ -65,6 +65,8 @@ Scripts to reproduce results obtained in the manuscript
 | BMMC&CD+34Enriched | [BMMC&CD+34Enriched](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/cell_population_discovery/immune.h5ad?csf=1&web=1&e=cUcHrK) |
 | adamson       | [adamson](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/adamson?csf=1&web=1&e=PzTR8l) |
 | norman        | [norman](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/norman?csf=1&web=1&e=IEJ3ZF) |
+| Replogle_k562 | [Replogle_k562](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/perturbation/replogle_k562_essential?csf=1&web=1&e=crrxnh) |
+| Replogle_rpe1 | [Replogle_rpe1](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/perturbation/replogle_rpe1_essential?csf=1&web=1&e=hlvQs9) |
 
 ## checkpoint preparation
 
