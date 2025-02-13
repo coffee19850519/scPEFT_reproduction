@@ -45,7 +45,7 @@ parser.add_argument("--data_path", type=str, help='Path to dataset')
 parser.add_argument("--model_type", type=str, help='Encoder_adapter/Token_adapter/Prefix/LoRA/finetune')
 parser.add_argument("--target_transformer_index", type=int, default= 11, help='Index of transfromer layer of interest, range from 0 to 11 for scGPT backbone')
 parser.add_argument("--target_cell_type", type=str, default= 'Effector Memory CD8+ T', help='Name of target cell type')
-parser.add_argument("--control_cell_type", type=str, default= 'Memory CD8+ T', help='Name of control cell type')
+parser.add_argument("--control_cell_type", type=str, default= None, help='Name of control cell type, if not provided, will be set as all non-target types')
 parser.add_argument("--target_genes", nargs='*', type=str, help='A list of target_genes to observe')
 
 
@@ -364,8 +364,11 @@ attn_adata = extract_attention(
 
 
 target = attn_adata[attn_adata.obs["celltype"] == args.target_cell_type].X
-control = attn_adata[attn_adata.obs["celltype"]== args.control_cell_type].X
-
+if args.control_cell_type is not None:
+    control = attn_adata[attn_adata.obs["celltype"]== args.control_cell_type].X
+else:
+    # when control is not provided, the comparison will be set as target vs all others
+    control = attn_adata[attn_adata.obs["celltype"] != args.target_cell_type].X
 
 
 target_mean = np.mean(target, axis=0)
@@ -380,13 +383,6 @@ _, p_value = stats.mannwhitneyu(target, control,axis=0)
 # Sort in descending order based on enrichment score
 df_att = pd.DataFrame({'gene_name': gene_name, 'differential_att': differential_att, 'p-val': p_value})
 df_att = df_att.sort_values(by='differential_att', ascending=False)
-
-
-
-
-
-
-
 
 #plot attention histogram across all genes and mark genes of interst
 def att_histogram(df_att, target_genes, max, min):
