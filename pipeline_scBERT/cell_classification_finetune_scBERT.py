@@ -128,10 +128,10 @@ for fold_idx in range(5):
     )
 
     path = args.model_path
-    path = f"{path}/{data_name}/finetune/{fold_idx}/best_model.pt"
+    path = f"{path}/{data_name}/finetune/{fold_idx}/best_model.pth"
     ckpt = torch.load(path)
     model.to_out = Identity(dropout=0., h_dim=128, out_dim=label_dict.shape[0])
-    model.load_state_dict(ckpt['model_state_dict'], True)
+    model.load_state_dict(ckpt, True)
     model = model.to(device)
 
 
