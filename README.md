@@ -1,6 +1,7 @@
-# Reproduce
+# Reproduction
 
-Scripts to reproduce results obtained in the manuscript
+This repo is to reproduce results from the manuscript **Harnessing the Power of Single Cell Large Language Models with Parameter Efficient
+Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffee19850519/scPEFT). Before reproducing the results, please ensure scPEFT and its dependencies are well installed. See [installation](https://github.com/coffee19850519/scPEFT?tab=readme-ov-file#installation).
 
 # Project structure
 
@@ -34,39 +35,26 @@ Scripts to reproduce results obtained in the manuscript
     └──  ReadMe.md                  
 
 ————————————————
-
-## Requirements
-
-1. Navigate to the project directory and create a conda environment:
-    ```shell
-    cd scPEFT
-    conda env create -f environment.yaml
-    ```
-2. Activate the conda environment:
-    ```shell
-    conda activate scGPT
-    ```
-
 ## Data preparation
 
 | Dataset       | Link                                                                                                                                                                             |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| M.S.          | [M.S.](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcelltype%5Fidentification%2Fms) |
-| NSCLC         | [NSCLC](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcelltype%5Fidentification%2FNSCLC) |
-| COVID         | [COVID](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcelltype%5Fidentification%2FCOVID) |
-| MergedMonkey  | [MergedMonkey](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcross%5Fspecies%2FMergedMonkey) |
-| elegans       | [elegans](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcross%5Fspecies%2Felegans) |
-| mouse_115746  | [mouse_115746](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcross%5Fspecies%2Fmouse%5F115746) |
-| mouse_10x     | [mouse_10x](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcross%5Fspecies%2Fmouse%5F10x) |
-| mouse_smart   | [mouse_smart](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2Fcross%5Fspecies%2Fmouse%5Fsmart) |
-| PBMC_10K      | [PBMC_10K](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/PBMC_10K.h5ad?csf=1&web=1&e=S7rEMp) |
-| Perirhinal Cortex | [Perirhinal Cortex](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/Perirhinal%20Cortex.h5ad?csf=1&web=1&e=uJmNcg) |
-| covid_batch | [covid_batch](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/batch_correction/covid_subsampled.h5ad?csf=1&web=1&e=XwYAZJ) |
-| BMMC&CD+34Enriched | [BMMC&CD+34Enriched](https://mailmissouri-my.sharepoint.com/:u:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/cell_population_discovery/immune.h5ad?csf=1&web=1&e=cUcHrK) |
-| adamson       | [adamson](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/adamson?csf=1&web=1&e=PzTR8l) |
-| norman        | [norman](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/perturbation/norman?csf=1&web=1&e=IEJ3ZF) |
-| Replogle_k562 | [Replogle_k562](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/perturbation/replogle_k562_essential?csf=1&web=1&e=crrxnh) |
-| Replogle_rpe1 | [Replogle_rpe1](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/perturbation/replogle_rpe1_essential?csf=1&web=1&e=hlvQs9) |
+| M.S.          | [M.S.](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_datasets/celltype_identification/ms?csf=1&web=1&e=kbwRr3) |
+| NSCLC         | [NSCLC](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EtITDWrq5Q1CoRgpf_2lXY8BfJD7MeM_iPgoBhww_-nB9g?e=dgEghu) |
+| COVID         | [COVID](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EopHPawZEStOnbyAARakhAsBNSS7wIjjfnCxyCn9RQPdZw?e=GxON87) |
+| MergedMonkey  | [MergedMonkey](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhLh96sk7wpDtqaN75vTcQ0BJJGFQi_SxbavbpogzkgwAg?e=d0E7lz) |
+| elegans       | [elegans](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhunvasmYe9IkfqliCwwGCYBTOAKNmNpr8Y1uiWX_4KlYA?e=gdJz3x) |
+| mouse_115746  | [mouse_115746](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/ElbV8m9rWTVAsB52j9ItgBsBMJmu8H18JB3wM5Henze1Yg?e=zCsGN0) |
+| mouse_10x     | [mouse_10x](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EjS7qzLrj6RLkgDVT6s2yb8BzFlUcoQbbjeuXqk2_l-R2A?e=yoMAdD) |
+| mouse_smart   | [mouse_smart](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Esm9-Ap9XgZDtqy3uy6hnfMBxwSGbRB5VgOgvAkSw0QEVw?e=Yi6EQa) |
+| PBMC_10K      | [PBMC_10K](https://mailmissouri-my.sharepoint.com/:u:/g/personal/hefe_umsystem_edu/EaK5MIsz5zFEmvfhEI9ChxkBZ1px0TitJAQtTVArSB1Wqg?e=V3f1Mt) |
+| Perirhinal Cortex | [Perirhinal Cortex](https://mailmissouri-my.sharepoint.com/:u:/g/personal/hefe_umsystem_edu/EcQbzOYnm-tJm_IOjy49iW4BqywK8soWQKvAI6xnZQRT3Q?e=V1qNRV) |
+| covid_batch | [covid_batch](https://mailmissouri-my.sharepoint.com/:u:/g/personal/hefe_umsystem_edu/EdOsMlIVJL5GjOdtWYkHhaIBtzwqhRnYOP-34dJ8KhQ3oA?e=QWXIFG) |
+| BMMC&CD+34Enriched | [BMMC&CD+34Enriched](https://mailmissouri-my.sharepoint.com/:u:/g/personal/hefe_umsystem_edu/EbSxnn4c6o9Ag0l4Sj_4J_MB0XizQoiAK8Im638BKk7Ang?e=8uyepm) |
+| adamson       | [adamson](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ei0zoMTWjA9JpAry9j3JzmwBOmvow3jYWMr2PRAeB0U0Lg?e=GK3LCB) |
+| norman        | [norman](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Em7ivdCFPbJClM7psJJ10FcBB-dUo215Wfq0_bplXZ8WRQ?e=JGDyjj) |
+| Replogle_k562 | [Replogle_k562](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/El1zppwEcQ5DnKC1Z70xHcIBkSwS5Z3bFjYtSazCvMZTqw?e=8v4Lrh) |
+| Replogle_rpe1 | [Replogle_rpe1](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Elt8Cilk-jtJgE1OEMBnQfcBOGw8Y12Cut2L9CizgLQBLw?e=poe75X) |
 
 ## checkpoint preparation
 
