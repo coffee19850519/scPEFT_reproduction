@@ -7,7 +7,7 @@ Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffe
 
 We adopted the following file structure to organize and link model checkpoints and data with the associated scripts.
 To reproduce our results, please ensure that the necessary model checkpoints and datasets have been downloaded from the provided OneDrive links and placed in their corresponding directories.
-You can find these download links in the README file within each folder, as well as in the Get Started section below.
+You can find these download links in the README file within each folder, as well as in the *Get Started* section below.
 
     ├── checkpoint             // the folder of checkpoint
     │   ├── celltype_identification    
@@ -17,14 +17,14 @@ You can find these download links in the README file within each folder, as well
     │       └── COVID......
     │   └── marker_gene_detection ......
     
-    ├── data                 // the path of dataset
+    ├── data                 // the folder of dataset
     │    ├── celltype_identification       
     │           ├── ms
     │               ├── 0
                     └── 1 .....
     │    └── marker_gene_detection ......
     
-    ├── script              
+    ├── script               // the scripts and supporting files for downstream tasks with scGPT
     │    ├── Reproduction_Identification.ipynb
     │    ├── Reproduction_MarkerGeneDetection.ipynb
     │    ├── Reproduction_CellPopulationDiscovery.ipynb
@@ -32,8 +32,16 @@ You can find these download links in the README file within each folder, as well
     │    ├── Reproduction_Perturbation.ipynb
     │    └── human_transcription_factors.txt .......
     
-    ├──  scgpt      
+    ├──  scgpt              // official scGPT source code
+        
+    ├──  performer_pytorch  // implementation with scBERT backend
 
+    ├──  pipline_pytorch    // the scripts and supporting files with scBERT
+
+    ├──  gear_replogle      // perturbation supporting utilities from gear 
+    
+    ├──  backbone_perturb   // perturbation supporting code with scGPT 
+    
     └──  ReadMe.md                  
 
 ————————————————
