@@ -69,12 +69,6 @@ key_parameters = dict(
 )
 ```
 
-
-### Cell type Identification
-
-
-
-
 run the Reproduction_Identification.py
 ```
 python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification --peft_type Encoder_adapter
