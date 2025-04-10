@@ -5,7 +5,11 @@ Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffe
 
 # Project structure
 
-    ├── checkpoint             // the path of checkpoint
+We adopted the following file structure to organize and link model checkpoints and data with the associated scripts.
+To reproduce our results, please ensure that the necessary model checkpoints and datasets have been downloaded from the provided OneDrive links and placed in their corresponding directories.
+You can find these download links in the README file within each folder, as well as in the Get Started section below.
+
+    ├── checkpoint             // the folder of checkpoint
     │   ├── celltype_identification    
     │       ├── ms
     │           ├── finetune
@@ -55,18 +59,17 @@ key_parameters = dict(
     data_path="../data/celltype_identification",  # Path to dataset
     peft_type="Encoder_adapter"  # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune
 )
-
-key_parameters = dict(
-    dataset_name="MergedMonkey",  # Dataset name  （MergedMonkey/mouse_115746/mouse_10x/mouse_smart/elegans）
-    model_path="../checkpoint/celltype_identification",  # Path to peft model
-    data_path="../data/cross_species",  # Path to dataset
-    peft_type="Encoder_adapter"  # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune
-)
 ```
+
+
+### Cell type Identification
+
+
+
+
 run the Reproduction_Identification.py
 ```
 python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification --peft_type Encoder_adapter
-python  Reproduction_Identification.py --dataset_name MergedMonkey --model_path ../checkpoint/celltype_identification --data_path ../data/cross_species --peft_type Encoder_adapter
 
 ```
 
@@ -79,6 +82,22 @@ python  Reproduction_Identification.py --dataset_name MergedMonkey --model_path 
 | mouse   | [Encoder (default)](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EtOt35EhuMJElTCeSNhLtOEBMXEO8UaxoL9hYLVRrWrtHw?e=NTHC9y) | [mouse_115746](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/ElbV8m9rWTVAsB52j9ItgBsBMJmu8H18JB3wM5Henze1Yg?e=zCsGN0)   [mouse_smartseq](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Esm9-Ap9XgZDtqy3uy6hnfMBxwSGbRB5VgOgvAkSw0QEVw?e=Yi6EQa)   [mouse_10x](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EjS7qzLrj6RLkgDVT6s2yb8BzFlUcoQbbjeuXqk2_l-R2A?e=yoMAdD) |
 | Monkey  | [Encoder (default)](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EvXj6q87o_1BgBSFXG2A1HQBZod17cfPp7uhuJA1pyknZw?e=qGdhhF) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhLh96sk7wpDtqaN75vTcQ0BJJGFQi_SxbavbpogzkgwAg?e=d0E7lz)                                                                                                                                                                                                                                                                                                            |
 | C.elegans   | [Encoder (default)](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Em34lYARKuxLk5zAMGR66GMB1Mp8EXHb6dlyJm1bhvrUOw?e=N5habB) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhunvasmYe9IkfqliCwwGCYBTOAKNmNpr8Y1uiWX_4KlYA?e=gdJz3x)                                                                                                                                                                                                                                                                                                            |
+
+
+run the Reproduction_Identification.ipynb
+```python
+key_parameters = dict(
+    dataset_name="MergedMonkey",  # Dataset name  （MergedMonkey/mouse_115746/mouse_10x/mouse_smart/elegans）
+    model_path="../checkpoint/celltype_identification",  # Path to peft model
+    data_path="../data/cross_species",  # Path to dataset
+    peft_type="Encoder_adapter"  # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune
+)
+```
+run the Reproduction_Identification.py
+```
+python  Reproduction_Identification.py --dataset_name MergedMonkey --model_path ../checkpoint/celltype_identification --data_path ../data/cross_species --peft_type Encoder_adapter
+
+```
 
 
 ### MarkerGeneDetection
