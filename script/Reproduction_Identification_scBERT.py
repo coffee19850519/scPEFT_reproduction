@@ -17,13 +17,12 @@
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("--data_name", type=str, default='COVID-19',help='NSCLC/COVID-19/ms_scBERT')
-parser.add_argument("--data_path", type=str, default='/fs/ess/PAS1475/Fei/Parallel_experiments_data/celltype_annotation', help='Path of data for finetune.')
-parser.add_argument("--model_path", type=str, default='/fs/ess/PAS1475/Yang/yy/SCbert/ckpts/COVID-19_Gene_token_prompt_0_best_model.pt',
+parser.add_argument("--data_name", type=str, default='COVID',help='NSCLC/COVID/ms')
+parser.add_argument("--data_path", type=str, default='../data/celltype_identification/', help='Path of data for finetune.')
+parser.add_argument("--model_path", type=str, default='../checkpoint/celltype_identification/COVID/Token_adapter/model_fold0.pt',
                     help='Path of pretrained model.')
 parser.add_argument("--prompt_type", type=str, default='Gene_token_prompt',help='Gene_encoder_prompt/Gene_token_prompt/prefix_prompt /LoRA')
-parser.add_argument("--pretrain_data_path", type=str, default='/fs/ess/PAS1475/Fei/scBERT_pretrain_data/panglao_human.h5ad', help='Path of pretrain data.')
-
+parser.add_argument("--pretrain_data_path", type=str, default='../pipeline_scBERT/panglao_human.h5ad', help='Path of pretrain data.')
 
 # ## Step 2: Start the validation
 
