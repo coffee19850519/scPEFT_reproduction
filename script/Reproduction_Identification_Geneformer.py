@@ -21,7 +21,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--dataset_name", type=str, default='ms',help='NSCLC/COVID/ms')
 parser.add_argument("--data_path", type=str, default='../data/celltype_identification/', help='Path of data for predicting')
 parser.add_argument("--output_path", type=str, default=f"../Geneformer/", help='output data path.')
-parser.add_argument("--model_path", type=str, default=f"/../checkpoint/celltype_identification/COVID/Encoder_adapter/", help='Path of data for predicting.')
+parser.add_argument("--model_path", type=str, default=f"../checkpoint/celltype_identification/COVID/Encoder_adapter/", help='Path of data for predicting.')
 
 
 # ## Step 2: Start the validation
