@@ -64,7 +64,7 @@ Here are the added reproductions for the revised manuscript.
 
 :soon: Coming soon
 
-### unsupervised adaptation on a lung atlas
+### Unsupervised adaptation on a lung atlas
 
 :soon: Coming soon
 
