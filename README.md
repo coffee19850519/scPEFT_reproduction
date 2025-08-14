@@ -3,6 +3,40 @@
 This repo is to reproduce results from the manuscript **Harnessing the Power of Single Cell Large Language Models with Parameter Efficient
 Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffee19850519/scPEFT). Before reproducing the results, please ensure scPEFT and its dependencies are well installed. See [installation](https://github.com/coffee19850519/scPEFT?tab=readme-ov-file#installation).
 
+————————————————
+## :fire: Update
+
+Here are the added reproductions for the revised manuscript.
+
+### Cell type identification with scFoundation backbone
+
+:soon: Coming soon
+
+### Perturbation prediction with scFoundation backbone
+
+:soon: Coming soon
+
+### Integrate with new PEFT techniques
+
+:soon: Coming soon
+
+### TF identification with Geneformer backbone
+
+:soon: Coming soon
+
+### Unsupervised adaptation on a lung atlas
+
+:soon: Coming soon
+
+### Adapter combination
+
+:soon: Coming soon
+
+### Hyperparameter sensitivity
+
+:soon: Coming soon
+
+————————————————
 # Project structure
 
 We adopted the following file structure to organize and link model checkpoints and data with the associated scripts.
@@ -43,38 +77,7 @@ You can find these download links in the README file within each folder, as well
     ├──  backbone_perturb   // perturbation supporting code with scGPT 
     
     └──  ReadMe.md                  
-————————————————
-## :fire: Update
 
-Here are the added reproductions for the revised manuscript.
-
-### Cell type identification with scFoundation backbone
-
-:soon: Coming soon
-
-### Perturbation prediction with scFoundation backbone
-
-:soon: Coming soon
-
-### Integrate with new PEFT techniques
-
-:soon: Coming soon
-
-### TF identification with Geneformer backbone
-
-:soon: Coming soon
-
-### Unsupervised adaptation on a lung atlas
-
-:soon: Coming soon
-
-### Adapter combination
-
-:soon: Coming soon
-
-### Hyperparameter sensitivity
-
-:soon: Coming soon
 
 ————————————————
 ## Get Started
