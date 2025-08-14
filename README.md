@@ -43,11 +43,43 @@ You can find these download links in the README file within each folder, as well
     ├──  backbone_perturb   // perturbation supporting code with scGPT 
     
     └──  ReadMe.md                  
+————————————————
+## :fire: Update
+
+Here are the added reproductions for the revised manuscript.
+
+### Cell type identification with scFoundation backbone
+
+:soon: Coming soon
+
+### Perturbation prediction with scFoundation backbone
+
+:soon: Coming soon
+
+### Integrate with new PEFT techniques
+
+:soon: Coming soon
+
+### TF identification with Geneformer backbone
+
+:soon: Coming soon
+
+### unsupervised adaptation on a lung atlas
+
+:soon: Coming soon
+
+### Adapter combination
+
+:soon: Coming soon
+
+### Hyperparameter sensitivity
+
+:soon: Coming soon
 
 ————————————————
 ## Get Started
 
-### Cell type Identification
+### Cell type identification
 
 | Dataset | Adapter model checkpoints                                                                                                                                                                                                    | 5-fold split processed data                                                                                                                               |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
