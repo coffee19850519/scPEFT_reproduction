@@ -3,6 +3,44 @@
 This repo is to reproduce results from the manuscript **Harnessing the Power of Single Cell Large Language Models with Parameter Efficient
 Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffee19850519/scPEFT). Before reproducing the results, please ensure scPEFT and its dependencies are well installed. See [installation](https://github.com/coffee19850519/scPEFT?tab=readme-ov-file#installation).
 
+
+## :fire: Update
+
+Here are the added reproductions for the revised manuscript.
+
+### Cell type identification with scFoundation backbone
+
+:soon: Coming soon
+
+### Perturbation prediction with scFoundation backbone
+
+:soon: Coming soon
+
+### Integrate with new PEFT techniques
+
+:soon: Coming soon
+
+### TF identification with Geneformer backbone
+
+:soon: Coming soon
+
+### Unsupervised adaptation on a lung cancer atlas
+
+:soon: Coming soon
+
+|Dataset| Model checkpoints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Atlas download |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+|lung cancer atlas| [Encoder(default)](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EvGr5oWVN-tNndA4wHfP73cBS5U9EMnIz34G2z_UEulJdw?e=rs9Ucf) &#124; [finetune](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EptMG-l_HXJOi7MjZGJqaKgB2tfBuah5-zv2FHpwNt_YQQ?e=widxHA)  &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EnBwESngH_pPho0gM2lu-KUB6Ceyiwv1N96pjSaQX2epBg?e=5sVudA) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkdPADM8ocdFjnclaEthRg4BpwRCVHc0zgXPzcMqMwwh-g?e=xeMpXk) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/ElpyAj_pTwROotmCFKNJgFEBhcjQrHf60dOzVUXDb5Llvw?e=hRFS63) | [link](https://mailmissouri-my.sharepoint.com/:u:/g/personal/hefe_umsystem_edu/EcD7ObXllz5Mg6bb1eJMpXkBpCVCnc1i0xzfxRZSOyej1g?e=j03QS0)       | 
+
+### Adapter combination
+
+:soon: Coming soon
+
+### Hyperparameter sensitivity
+
+:soon: Coming soon
+
+————————————————
 # Project structure
 
 We adopted the following file structure to organize and link model checkpoints and data with the associated scripts.
@@ -44,10 +82,11 @@ You can find these download links in the README file within each folder, as well
     
     └──  ReadMe.md                  
 
+
 ————————————————
 ## Get Started
 
-### Cell type Identification
+### Cell type identification
 
 | Dataset | Adapter model checkpoints                                                                                                                                                                                                    | 5-fold split processed data                                                                                                                               |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|

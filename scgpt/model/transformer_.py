@@ -521,6 +521,10 @@ class TransformerEncoderLayer(Module):
 
         if self.use_prompt and "LoRA" in self.prompt_type and self.space_adapter_conf[self.block_number] :
             from .activation_for_LoRA import MultiheadAttention
+        elif self.use_prompt and "OFT" in self.prompt_type and self.space_adapter_conf[self.block_number] :
+            from .MultiheadAttentionOFT import MultiheadAttention
+        elif self.use_prompt and "HRA" in self.prompt_type and self.space_adapter_conf[self.block_number] :
+            from .MultiheadAttentionHRA import MultiheadAttention
 
         else:
             from torch.nn import MultiheadAttention

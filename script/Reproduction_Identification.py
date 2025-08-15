@@ -87,7 +87,9 @@ peft_prompt_relationship = {
     "Token_adapter": "head-prompt",
     "Prefix": "prefix-prompt",
     "LoRA": "LoRA",
-    "finetune": "finetune"
+    "finetune": "finetune",
+    "HRA": "HRA",
+    "OFT": "OFT",
 }
 hyperparameter_defaults.update(key_parameters)
 config = argparse.Namespace(**hyperparameter_defaults)
@@ -259,7 +261,7 @@ for i in range(n_splits):
         **prompt_settings
     )
 
-    if config.prompt_type == "LoRA":
+    if config.prompt_type == "LoRA" or config.prompt_type == "HRA" or config.prompt_type == "OFT":
         model_weights = torch.load(model_file, map_location=device)
         if 'transformer_encoder.layers.0.self_attn.Wqkv.weight' in model_weights:
             for i in range(6):
@@ -287,4 +289,5 @@ for i in range(n_splits):
         f"Accuracy: {results['test/accuracy']:.3f}, Precision: {results['test/precision']:.3f}, Recall: {results['test/recall']:.3f}, "
         f"Macro F1: {results['test/macro_f1']:.3f}"
     )
+
 
