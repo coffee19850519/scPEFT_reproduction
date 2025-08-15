@@ -31,7 +31,7 @@ We provide extensive pre-trained models for cell type classification on NSCLC da
 - Triple combinations: `ENCODER_TOKEN_PREFIX`, `ENCODER_TOKEN_LORA`, `ENCODER_PREFIX_LORA`, `TOKEN_PREFIX_LORA`
 - Full Multi-PEFT: `ENCODER_TOKEN_PREFIX_LORA`
 
-All models are available in [link]([adapter_combination](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=mSRv25)) with cross-validation splits.
+All models are available in [link](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=RV2HgO)with cross-validation splits.
 
 ## Installation
 
