@@ -1,84 +1,136 @@
-# scPEFT
+# Multi-PEFT Support for scGPT
 
-This is the official repository for **Harnessing the Power of Single Cell Large Language Models with Parameter Efficient
-Fine-Tuning using scPEFT**. To reproduce the results from the paper, please visit [scPEFT_reproduction](https://github.com/coffee19850519/scPEFT_reproduction).
+This repository provides comprehensive **Multi-Parameter Efficient Fine-Tuning (Multi-PEFT)** support for scGPT models, enabling simultaneous application of multiple PEFT strategies for enhanced single-cell analysis with extensive experimental validation.
 
-[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)](https://www.biorxiv.org/content/10.1101/2024.01.27.577455v1)
-&nbsp;
-[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/username/repo/blob/main/LICENSE)
+## Key Features
+
+- **Multi-PEFT Strategy Support**: Simultaneously apply multiple PEFT methods (LoRA, Adapters, Prefix tuning, etc.)
+- **Complete Pipeline**: Training and inference scripts with comprehensive evaluation
+- **Cross-Validation Results**: Pre-trained models across 5-fold cross-validation on NSCLC dataset
+- **Memory Efficient**: Significantly reduce GPU memory usage while maintaining performance
+- **Flexible Configuration**: Support 15 different PEFT strategy combinations
+- **Detailed Analysis**: Comprehensive metrics, confusion matrices, and visualization tools
+
+## Supported PEFT Methods
+
+| Method | Description | Available Models |
+|:-------|:------------|:-----------------|
+| **LoRA** | Low-Rank Adaptation for attention layers | ✅ |
+| **ENCODER** | Adapter modules in encoder layers | ✅ |
+| **TOKEN** | Token-level adaptation | ✅ |
+| **PREFIX** | Prefix tuning for generation tasks | ✅ |
+| **Multi-PEFT** | All strategies combined | ✅ |
+
+## Pre-trained Models
+
+We provide extensive pre-trained models for cell type classification on NSCLC dataset:
+
+### Available Model Combinations (15 variants × 5 folds = 75 models)
+- Single strategies: `ENCODER`, `TOKEN`, `PREFIX`, `LORA`
+- Dual combinations: `ENCODER_TOKEN`, `ENCODER_PREFIX`, `ENCODER_LORA`, `TOKEN_PREFIX`, `TOKEN_LORA`, `PREFIX_LORA`
+- Triple combinations: `ENCODER_TOKEN_PREFIX`, `ENCODER_TOKEN_LORA`, `ENCODER_PREFIX_LORA`, `TOKEN_PREFIX_LORA`
+- Full Multi-PEFT: `ENCODER_TOKEN_PREFIX_LORA`
+
+All models are available in [link]([adapter_combination](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=mSRv25)) with cross-validation splits.
 
 ## Installation
 
-scPEFT works with Python >= 3.7.13. scPEFT is available on PyPI. To install scPEFT, run the following command:
+### Download Pretrained Base Models
+
+Download the scGPT pretrained model (e.g., [whole-human model](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y?usp=sharing)) and place it in your desired directory:
 
 ```bash
-pip install scpeft
+# Example directory structure
+./scGPT_human/
+├── args.json
+├── best_model.pt
+└── vocab.json
 ```
 
-For developing, run the following command:
+## Quick Start
+
+### Training with Multi-PEFT
+
+```bash
+# Navigate to tutorial directory
+cd tutorial_peft
+
+# Train with all PEFT strategies (default)
+python train_cell_type.py
+```
+
+The training script supports all combinations:
+
+```python
+# Available PEFT strategy combinations
+peft_strategies = [
+    ["ENCODER"],
+    ["TOKEN"], 
+    ["PREFIX"],
+    ["LORA"],
+    ["ENCODER", "TOKEN"],
+    ["ENCODER", "PREFIX"],
+    ["ENCODER", "LORA"],
+    ["TOKEN", "PREFIX"],
+    ["TOKEN", "LORA"],
+    ["PREFIX", "LORA"],
+    ["ENCODER", "TOKEN", "PREFIX"],
+    ["ENCODER", "TOKEN", "LORA"],
+    ["ENCODER", "PREFIX", "LORA"],
+    ["TOKEN", "PREFIX", "LORA"],
+    ["ENCODER", "TOKEN", "PREFIX", "LORA"]  # Full Multi-PEFT
+]
+```
+
+### Inference with Comprehensive Analysis
+
+```bash
+# Basic inference with detailed analysis
+python inference_cell_type.py \
+    --model_dir ./NSCLC/fold1/peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA \
+    --data_dir ./NSCLC/ \
+    --output_dir ./inference_results
+```
+
+### Inference Output
+
+The inference script generates comprehensive results:
+
+- `inference_results.pkl` - Complete results with predictions and probabilities
+- `metrics.json` - Detailed evaluation metrics
+- `confusion_matrix.png` - Normalized confusion matrix visualization
+- `per_class_metrics.png` - Per-class precision, recall, F1-score
+- `detailed_results.csv` - Cell-level predictions with probabilities
+
+## File Structure
 
 ```
-git clone https://github.com/coffee19850519/scPEFT
-cd scPEFT
-```
-
-**Note**: scPEFT is currently built on top of [scGPT](https://github.com/bowang-lab/scGPT), [scBERT](https://github.com/TencentAILabHealthcare/scBERT), and [Geneformer](https://huggingface.co/ctheodoris/Geneformer).
-Please follow their installation instructions to ensure all necessary versioned dependencies are installed. We provide a [requirements. ymal](https://github.com/SELECT-FROM/scPEFT/blob/main/requirements.yaml) file for the environment in which scPEFT was developed.
-
-## Get Started
-
-1. Download the backbone
-   model, e.g., [scGPT model checkpoint](https://github.com/bowang-lab/scGPT/blob/main/README.md#pretrained-scgpt-model-zoo)
-   and place it at e.g., `work_dir/scPEFT/save`. We recommend using
-   the [whole-human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y?usp=sharing) model for
-   most applications by default, which pretrained on 33 million normal human cells.
-
-2. The tutorials of scPEFT for downstream tasks
-   in  [tutorial_peft](https://github.com/coffee19850519/scPEFT/tree/main/tutorial_peft). Here are the links to the
-   downstream tasks and tutorials mentioned in our article
-
-   | Downstream task           | Link                                                                                                                                           |
-   |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
-   | cell type identification  | [Tutorial_Identification.ipynb](https://github.com/coffee19850519/scPEFT/blob/main/tutorial_peft/Tutorial_Identification.ipynb)                |
-   | batch correction          | [Tutorial_BatchCorrection.ipynb](https://github.com/coffee19850519/scPEFT/blob/main/tutorial_peft/Tutorial_BatchCorrection.ipynb)                 |
-   | perturbation              | [Tutorial_Perturbation.ipynb](https://github.com/coffee19850519/scPEFT/blob/main/tutorial_peft/Tutorial_Perturbation.ipynb)                       |
-   | cell population discovery | [Tutorial_CellPopulationDiscovery.ipynb](https://github.com/coffee19850519/scPEFT/blob/main/tutorial_peft/Tutorial_CellPopulationDiscovery.ipynb) |
-   | marker gene detection     | [Tutorial_MarkerGeneDetection.ipynb](https://github.com/coffee19850519/scPEFT/blob/main/tutorial_peft/Tutorial_MarkerGeneDetection.ipynb)         |
-
-## To-do-list
-
-- [x] Publish to pypi
-- [x] Adapting scPEFT for native-attention
-- [ ] Adapting scPEFT for flash-attention
-- [ ] Only retain PEFT-related parameters when saving peft-model weights.
-
-## Contributing
-
-We greatly welcome contributions to scPEFT. Please submit a pull request if you have any ideas or bug fixes. We also
-welcome any issues you encounter while using scPEFT.
-
-## Built With
-
-We sincerely thank the authors of following open-source projects:
-
-- [scGPT](https://github.com/bowang-lab/scGPT)
-- [Geneformer](https://huggingface.co/ctheodoris/Geneformer)
-- [scBERT](https://github.com/TencentAILabHealthcare/scBERT)
-- [scanpy](https://github.com/scverse/scanpy)
-- [scib](https://github.com/theislab/scib)
-- [pytorch](https://github.com/pytorch/pytorch)
-
-## Citing scPEFT
-
-```bibtex
-@article {He2025.04.21.649754,
-	author = {He, Fei and Fei, Ruixin and Krull, Jordan E. and Zhang, Xinyu and Gao, Mingyue and Su, Li and Chen, Yibo and Yu, Yang and Li, Jinpu and Jin, Baichuan and Chang, Yuzhou and Ma, Anjun and Ma, Qin and Xu, Dong},
-	title = {Harnessing the Power of Single-Cell Large Language Models with Parameter Efficient Fine-Tuning using scPEFT},
-	year = {2025},
-	doi = {10.1101/2025.04.21.649754},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2025/04/23/2025.04.21.649754},
-	journal = {bioRxiv}
-}
-
+multi_peft_support/
+├── scgpt/                              # Core scGPT modules with PEFT support
+│   ├── model/                          # Enhanced model architectures
+│   │   ├── model.py                    # Main TransformerModel with PEFT
+│   │   └── MultiheadAttentionLoRA.py   # LoRA attention implementation
+│   ├── tokenizer/                      # Gene tokenization utilities
+│   ├── utils/                          # PEFT utilities and configurations
+│   └── ...
+├── tutorial_peft/                      # Training and inference scripts
+│   ├── train_cell_type.py             # Multi-PEFT training script
+│   └── inference_cell_type.py         # Comprehensive inference script
+├── all_result/                         # Pre-trained models repository
+│   └── NSCLC/                         # NSCLC dataset results
+│       ├── fold0/                     # Cross-validation fold 0
+│       │   ├── peft_NSCLC_ENCODER/    # Single ENCODER strategy
+│       │   ├── peft_NSCLC_LORA/       # Single LORA strategy
+│       │   ├── ...                    # All 15 combinations
+│       │   └── peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA/  # Full Multi-PEFT
+│       ├── fold1/                     # Cross-validation fold 1
+│       ├── ...                        # Folds 2-4
+│       └── fold4/                     # Cross-validation fold 4
+├── dataset/                                 # Sample data (fold 1)
+│   ├── NSCLC_train1.h5ad
+│   ├── NSCLC_val1.h5ad
+│   └── NSCLC_test1.h5ad
+├── Reproduction_Identification.py      # Reproduction script
+├── requirements.yaml                   # Environment dependencies
+└── README.md                          # This file
 ```

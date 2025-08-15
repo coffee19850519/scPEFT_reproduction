@@ -36,11 +36,16 @@ Here are the added reproductions for the revised manuscript.
 
 :soon: Coming soon
 
+| Dataset | Model checkpoints                                            | Atlas download                                               |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| NSCLC   | [fold0]([fold0](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold0?csf=1&web=1&e=wCXiWL)) \| [fold1]([fold1](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold1?csf=1&web=1&e=gcjgx6))\| [fold2](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold2?csf=1&web=1&e=eFGIpx) \| [fold3]([fold3](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold3?csf=1&web=1&e=oxisFY)) \| [fold4](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold4?csf=1&web=1&e=Vijdfw) | [link]([adapter_combination](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=RV2HgO)) |
+
 ### Hyperparameter sensitivity
 
 :soon: Coming soon
 
 ————————————————
+
 # Project structure
 
 We adopted the following file structure to organize and link model checkpoints and data with the associated scripts.
@@ -73,9 +78,9 @@ You can find these download links in the README file within each folder, as well
     ├──  scgpt              // official scGPT source code
         
     ├──  performer_pytorch  // implementation with scBERT backend
-
+    
     ├──  pipline_pytorch    // the scripts and supporting files with scBERT
-
+    
     ├──  gear_replogle      // perturbation supporting utilities from gear 
     
     ├──  backbone_perturb   // perturbation supporting code with scGPT 
