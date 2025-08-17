@@ -5,7 +5,7 @@ import sys
 import os
 import numpy as np
 import random
-from pretrainmodels import select_model
+from .pretrainmodels import select_model
 import math
 
 def next_16x(x):
