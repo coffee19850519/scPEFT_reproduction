@@ -110,7 +110,7 @@ class GEARS_Model(torch.nn.Module):
         self.cell_fitness_mlp = MLP([self.num_genes, hidden_size*2, hidden_size, 1], last_layer_act='linear')
         
         if args['model_type'] == 'maeautobin':
-            from modules.encoders import MAEAutobinencoder
+            from ..modules.encoders import MAEAutobinencoder
             self.singlecell_model = MAEAutobinencoder(args, hidden_size=hidden_size)
             self.pretrained = True
             print('Single cell model load success! model type: MAEAutobin')
