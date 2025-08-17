@@ -22,6 +22,8 @@ Here are the added reproductions for the revised manuscript.
 
 ### TF identification with Geneformer backbone
 
+The script is `script/gene_cls_clean.py`
+
 :soon: Coming soon
 
 ### Unsupervised adaptation on a lung cancer atlas
