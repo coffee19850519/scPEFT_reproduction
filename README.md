@@ -22,9 +22,21 @@ Here are the added reproductions for the revised manuscript.
 
 ### TF identification with Geneformer backbone
 
-The script is `script/gene_cls_clean.py`
+The script is `script/gene_cls_clean.py`. To run the script:
+```
+python -u gene_cls_clean.py \
+    --dataset_name "$DATASET_NAME" \
+    --output_root "$OUTPUT_PATH" \
+    --prompt_type "$PROMPT_TYPE" \
+    --ce_weights 7,1
+```
+| Dataset | Model checkpoints (5 folds) & Data download                                              |            
+| ------- | ------------------------------------------------------------ | 
+| bivalent_promoters   | [Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2FBivalent%5Fpromoter&ga=1) |
+|N1_network|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2FNOTCH1%5Fnetwork&ga=1)|
+|tf_regulatory_range|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2Flong%5Frange%5FTF&ga=1)|
 
-:soon: Coming soon
+
 
 ### Unsupervised adaptation on a lung cancer atlas
 
