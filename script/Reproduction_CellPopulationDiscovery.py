@@ -116,11 +116,17 @@ do_batch_classification = config.do_batch_classification
 
 dataset_name = config.dataset_name
 data_dir = Path(config.data_path)
+adata = sc.read(data_dir / f"{dataset_name}.h5ad")
+data_is_raw = True
+
+#placeholder for data-preparation only
+#not be involved in adaptation and inference
+adata.obs["str_batch"] = 0
+
 if dataset_name == 'immune':
-    adata = sc.read(data_dir / f"{dataset_name}.h5ad")
-    adata.obs["str_batch"] = 0
     adata.obs["celltype"] = adata.obs["annot"]
-    data_is_raw = True
+elif dataset_name == 'lung_cancer':
+    adata.obs["celltype"] = adata.obs["cell_type"]
 
 # make the batch category column
 batch_id_labels = adata.obs["str_batch"].astype("category").cat.codes.values

@@ -77,7 +77,16 @@ python -u gene_cls_clean.py \
 
 ### Unsupervised adaptation on a lung cancer atlas
 
-:soon: Coming soon
+The script is `script/Reproduction_CellPopulationDiscovery.py`. To run the script:
+
+```
+    python Reproduction_CellPopulationDiscovery.py \
+     --dataset_name lung_cancer    \  # Dataset name
+     --load_model ./save/lung_cancer \  # Path to load the model checkpoint
+     --data_path ./data/             \  # Path to load the model checkpoint
+     --peft_type Encoder_adapter        # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune
+
+```
 
 | Dataset           | Model checkpoints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Atlas download link                                                                                                                     |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +115,15 @@ The script is `multi_peft_support/tutorial_peft/inference_cell_type.py`. To run 
 | **Trio**    | [ENCODER+TOKEN+PREFIX](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ev5Xb2b8axVFsXE40ssOQZ4BztsqfxmWNN4-FqLFljSV_Q?e=HhvEws) \| [ENCODER+TOKEN+LORA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EuFDr6L1khdJkFtN1Zz9NjABHSKoiUtVklnORRl8OIlh7g?e=GHVxdI) \| [ENCODER+PREFIX+LORA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Eg0DWw4WY59OjYml_smoVm8BuiCplFhOarkZJHbYXMlHxw?e=RO5PHq) \| [TOKEN+PREFIX+LORA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Em0Cw0tn41NMp2zBTW1kJ6EBgG98BS63lo3vI1cOo5egbw?e=DJHSUl) | [NSCLC](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EtITDWrq5Q1CoRgpf_2lXY8BfJD7MeM_iPgoBhww_-nB9g?e=dgEghu) |
 | **Quad**    | [ENCODER+TOKEN+PREFIX+LORA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EmeCzhWKgmtEv0ld1cwBQQgBNzICxjUy0gHOkUSKmsCrvQ?e=CjRH2z) | [NSCLC](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EtITDWrq5Q1CoRgpf_2lXY8BfJD7MeM_iPgoBhww_-nB9g?e=dgEghu) |
 
-### Hyperparameter sensitivity
+### Hyperparameter sensitivity on cell type identification
+
+:soon: Coming soon
+
+### Hyperparameter sensitivity on batch effect correction
+
+:soon: Coming soon
+
+### Hyperparameter sensitivity on perturbation response prediction
 
 :soon: Coming soon
 
