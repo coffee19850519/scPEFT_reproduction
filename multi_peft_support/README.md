@@ -85,17 +85,14 @@ peft_strategies = [
 ### Inference with Comprehensive Analysis
 
 ```bash
-# Basic inference with detailed analysis
-python inference_cell_type.py \
-      --model_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support/all_result/NSCLC \
-      --data_base_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support \
-      --peft_method peft_NSCLC_TOKEN \
-      --fold 0 \
-      --pretrained_model ./scGPT_human \
-      --batch_size 32 \
-      --output_dir ./inference_results \
-      --device auto \
-      --save_results
+    python inference_cell_type.py \
+          --model_dir ./NSCLC \  # Path to directory containing PEFT method folders
+          --data_base_dir ./ \  # Base directory containing fold data directories
+          --peft_method peft_NSCLC_TOKEN \  # PEFT method (peft_NSCLC_TOKEN, peft_NSCLC_TOKEN_LORA, peft_NSCLC_TOKEN_PREFIX, etc.)
+          --fold 0 \  # Cross-validation fold to use (0-4)
+          --batch_size 32 \  # Batch size for inference
+          --output_dir ./inference_results \  # Directory to save results
+          --save_results  # Save inference results and visualizations
 ```
 
 ### Inference Output

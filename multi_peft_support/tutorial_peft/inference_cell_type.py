@@ -13,7 +13,14 @@ Key Features:
 - Confusion matrix and performance analysis
 
 Usage:
-    python inference_cell_type.py --model_path ./save_dir/model.pt --data_path ./data
+        python inference_cell_type.py \
+          --model_dir ./NSCLC \  # Path to directory containing PEFT method folders
+          --data_base_dir ./ \  # Base directory containing fold data directories
+          --peft_method peft_NSCLC_TOKEN \  # PEFT method (peft_NSCLC_TOKEN, peft_NSCLC_TOKEN_LORA, peft_NSCLC_TOKEN_PREFIX, etc.)
+          --fold 0 \  # Cross-validation fold to use (0-4)
+          --batch_size 32 \  # Batch size for inference
+          --output_dir ./inference_results \  # Directory to save results
+          --save_results  # Save inference results and visualizations
 
 The script will automatically:
 1. Load the fine-tuned model with PEFT configuration
