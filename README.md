@@ -15,7 +15,7 @@ Run the `script/Reproduction_Identification_scFoundation.py`:
 python Reproduction_Identification_scFoundation.py \
     --data_path ./data  # Path to dataset \
     --data_name COVID # Dataset name  （ms/COVID/NSCLC) \
-    --save_path ./results/ # Saved model path \
+    --save_path ./results/ # Path to peft model \
     --use_prompt True  # Wether to use peft methods \
     --peft_type Token_adapter  # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune \
     --fold_idx 0 # fold index
@@ -23,11 +23,23 @@ python Reproduction_Identification_scFoundation.py \
 
 ### Perturbation prediction with scFoundation backbone
 
-:soon: Coming soon
+Run the `script/Reproduction_Perturbation_scFoundation.py`:
+```
+python Reproduction_Identification_scFoundation.py \
+    --data_dir ./data  # Path to dataset \
+    --data_name Norman # Dataset name  （Norman/Replogle_k562) \
+    --result_dir ./results/ # Path to peft model \
+    --peft_type Token_adapter  # Encoder_adapter/ Token_adapter / Prefix / LoRA \
+```
 
 ### Integrate with new PEFT techniques
 
-:soon: Coming soon
+run the Reproduction_Identification.py
+```
+python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification \
+        --peft_type HRA # HRA or OFT
+```
+
 
 ### TF identification with Geneformer backbone
 
