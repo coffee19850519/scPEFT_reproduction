@@ -38,6 +38,10 @@ python Reproduction_Identification_scFoundation.py \
     --result_dir ./results/ # Path to peft model \
     --peft_type Token_adapter  # Encoder_adapter/ Token_adapter / Prefix / LoRA \
 ```
+| Dataset | Adapter model checkpoints                                                                                                                                                                  |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Norman    | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EgpYhuS5r-pDgtLvwa0YlhwBsGUOO7BNES2V5E91loE0Iw?e=F3vGao) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EndIloieCKVItrvL65MYS7UBQnYx0tM5WxkxhtoC1n-uDw?e=hi4xYe) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/ErQIhQBTISJLjloh-AXYiZgByI9xpgH4ydvsorq2a7g17g?e=oeHWt3) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhxlGbBcpflKrM5VoY2j1PsBPdAd2o5DtNXdG2JiQc_B8Q?e=129wpu)|
+| Replogle_k562  | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ej0yMrzuGp9Mm2XV_NbVBToB1ZefQI03v9HW-MHCrmxx2g?e=u1c9Bm) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Et-hCAkyoGJBvEVDG3nJKtQBuGiqg2Sgq9GCHY42fOZriw?e=41Awke) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ej6yu2e44KdFlT_iiS0lCiQB6-iFyq0NESc4l2fgFxSCAg?e=f8FtYu) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EgBIIobRaKZOtDLeRNgiymgBRcsVxjkimIy7-cR4MNaG_Q?e=agKk85)|
 
 ### Integrate with new PEFT techniques
 
