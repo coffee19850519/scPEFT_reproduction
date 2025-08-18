@@ -10,7 +10,16 @@ Here are the added reproductions for the revised manuscript.
 
 ### Cell type identification with scFoundation backbone
 
-:soon: Coming soon
+Run the `script/Reproduction_Identification_scFoundation.py`:
+```
+python Reproduction_Identification_scFoundation.py \
+    --data_path ./data  # Path to dataset \
+    --data_name COVID # Dataset name  （ms/COVID/NSCLC) \
+    --save_path ./results/ # Saved model path \
+    --use_prompt True  # Wether to use peft methods \
+    --peft_type Token_adapter  # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune \
+    --fold_idx 0 # fold index
+```
 
 ### Perturbation prediction with scFoundation backbone
 
