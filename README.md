@@ -50,6 +50,11 @@ run the Reproduction_Identification.py
 python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification \
         --peft_type HRA # HRA or OFT
 ```
+| Dataset | Adapter model checkpoints                                                                                                         |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------|
+| M.S.    | [OFT](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EldNH5YI9YpEizbRZsL5i-gB_dLoLotM5FOEpEWDtRZPRA?e=vb3VvX)  &#124; [HRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Elixm1uyMtZIn-rwpChdmNIBzB_CCEGAGT05IymxSP50eA?e=xi2dRK)|
+| NSCLC   | [OFT](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Eppsm_DNs3hPnGwI6ZgP6U4BFQkbuS9cO8ubssE2rWSzTw?e=zdf3YV)  &#124; [HRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EsCyQ7kcFKtPrVvuU8zF_roBBBPsaxM_4Pn3gWA4EXY2qw?e=NaqRob)|
+| COVID   | [OFT](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EikFb1W2iy1Aodv4ndcYUMsBG83SnkD-tDVtnJPjK7T7MQ?e=qHHOgZ)  &#124; [HRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EshDV3YADpRCt82LG8PZUBABTcg7ta7C2Lgi9gko-ZJWjw?e=A6Cc62)|
 
 
 ### TF identification with Geneformer backbone
