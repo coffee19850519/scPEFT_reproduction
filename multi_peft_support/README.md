@@ -31,7 +31,7 @@ We provide extensive pre-trained models for cell type classification on NSCLC da
 - Triple combinations: `ENCODER_TOKEN_PREFIX`, `ENCODER_TOKEN_LORA`, `ENCODER_PREFIX_LORA`, `TOKEN_PREFIX_LORA`
 - Full Multi-PEFT: `ENCODER_TOKEN_PREFIX_LORA`
 
-All models are available in [link](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=RV2HgO)with cross-validation splits.
+All models are available in [link]([adapter_combination]([NSCLC](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC?csf=1&web=1&e=Mwumc0)) with cross-validation splits.
 
 ## Installation
 
@@ -87,9 +87,15 @@ peft_strategies = [
 ```bash
 # Basic inference with detailed analysis
 python inference_cell_type.py \
-    --model_dir ./NSCLC/fold1/peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA \
-    --data_dir ./NSCLC/ \
-    --output_dir ./inference_results
+      --model_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support/all_result/NSCLC \
+      --data_base_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support \
+      --peft_method peft_NSCLC_TOKEN \
+      --fold 0 \
+      --pretrained_model ./scGPT_human \
+      --batch_size 32 \
+      --output_dir ./inference_results \
+      --device auto \
+      --save_results
 ```
 
 ### Inference Output

@@ -85,11 +85,30 @@ python -u gene_cls_clean.py \
 
 ### Adapter combination
 
-:soon: Coming soon
+The script is `multi_peft_support/tutorial_peft/inference_cell_type.py`. To run the script:
 
-| Dataset | Model checkpoints                                            | Atlas download                                               |
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| NSCLC   | [fold0](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold0?csf=1&web=1&e=wCXiWL) \| [fold1](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold1?csf=1&web=1&e=gcjgx6) \| [fold2](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold2?csf=1&web=1&e=eFGIpx) \| [fold3](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold3?csf=1&web=1&e=oxisFY) \| [fold4](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/fold4?csf=1&web=1&e=Vijdfw) | [link](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination?csf=1&web=1&e=RV2HgO) |
+```
+# Basic inference with detailed analysis
+python inference_cell_type.py \
+      --model_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support/all_result/NSCLC \
+      --data_base_dir /mnt/c/Users/wxy/Desktop/esmc/multi_peft_support \
+      --peft_method peft_NSCLC_TOKEN \
+      --fold 0 \
+      --pretrained_model ./scGPT_human \
+      --batch_size 32 \
+      --output_dir ./inference_results \
+      --device auto \
+      --save_results
+```
+
+
+
+| Dataset | Model checkpoints                                            | Dataset |
+| ------- | ------------------------------------------------------------ | ------- |
+| Single  | [ENCODER]([peft_NSCLC_ENCODER](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER?csf=1&web=1&e=niEaDH)) \| [TOKEN]([peft_NSCLC_TOKEN (1)](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_TOKEN (1)?csf=1&web=1&e=gGXTgb) \| [PREFIX]([peft_NSCLC_PREFIX](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_PREFIX?csf=1&web=1&e=bVgICY)) \| [LORA]([peft_NSCLC_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_LORA?csf=1&web=1&e=txGsdn)) | NSCLC   |
+| Dual    | [ENCODER_TOKEN]([peft_NSCLC_ENCODER](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER?csf=1&web=1&e=niEaDH)) \| [ENCODER_PREFIX]([peft_NSCLC_ENCODER_PREFIX](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_PREFIX?csf=1&web=1&e=3dAtEU)) \| [ENCODER_LORA]([peft_NSCLC_ENCODER_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_LORA?csf=1&web=1&e=7fNkOr)) \| [TOKEN_PREFIX]([peft_NSCLC_TOKEN_PREFIX](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_TOKEN_PREFIX?csf=1&web=1&e=X3D1to)) \| [TOKEN_LORA]([peft_NSCLC_TOKEN_LORA (1)](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_TOKEN_LORA (1)?csf=1&web=1&e=28fRWU)) \|[PREFIX_LORA]([peft_NSCLC_PREFIX_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_PREFIX_LORA?csf=1&web=1&e=U6DSwx)) | NSCLC   |
+| Triple  | [ENCODER_TOKEN_PREFIX]([peft_NSCLC_ENCODER_TOKEN_PREFIX](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_TOKEN_PREFIX?csf=1&web=1&e=ckh9bh)) \|[ENCODER_TOKEN_LORA]([peft_NSCLC_ENCODER_TOKEN_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_TOKEN_LORA?csf=1&web=1&e=5bvSN4)) \|[ENCODER_PREFIX_LORA]([peft_NSCLC_ENCODER_PREFIX_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_PREFIX_LORA?csf=1&web=1&e=auD4y1)) \|[TOKEN_PREFIX_LORA]([peft_NSCLC_TOKEN_PREFIX_LORA (1)](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_TOKEN_PREFIX_LORA (1)?csf=1&web=1&e=bFGLjx)) | NSCLC   |
+| Full    | [ENCODER_TOKEN_PREFIX_LORA]([peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA](https://mailmissouri-my.sharepoint.com/:f:/r/personal/hefe_umsystem_edu/Documents/scPEFT_checkpoints/adapter_combination/NSCLC/peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA?csf=1&web=1&e=QTfpqg)) | NSCLC   |
 
 ### Hyperparameter sensitivity
 

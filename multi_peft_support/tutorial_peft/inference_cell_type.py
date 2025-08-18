@@ -77,13 +77,17 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Cell Type Classification Inference with PEFT')
     
     # Model and data paths
-    parser.add_argument('--model_dir', type=str, default='./save41/peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA-Aug15-10-30/',
-                        help='Directory containing the trained model')
+    parser.add_argument('--model_dir', type=str, default='/mnt/c/Users/wxy/Desktop/esmc/multi_peft_support/all_result/NSCLC',
+                        help='Base directory containing PEFT method directories')
+    parser.add_argument('--peft_method', type=str, default='peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA',
+                        help='PEFT method name (directory name under model_dir)')
+    parser.add_argument('--fold', type=int, default=0, choices=[0, 1, 2, 3, 4],
+                        help='Fold number to use for inference (0-4)')
     parser.add_argument('--pretrained_model', type=str, default='./scGPT_human',
                         help='Path to pretrained scGPT model')
-    parser.add_argument('--data_dir', type=str, 
-                        default='/public/home/wxy/scPEFT_reproduction-main/data/celltype_annoration/NSCLC/4',
-                        help='Directory containing test data')
+    parser.add_argument('--data_base_dir', type=str, 
+                        default='/mnt/c/Users/wxy/Desktop/esmc/multi_peft_support',
+                        help='Base directory containing fold data directories')
     
     # Inference settings
     parser.add_argument('--batch_size', type=int, default=32, help='Batch size for inference')
@@ -137,15 +141,29 @@ class InferenceConfig:
             setattr(self, key, value)
         
         # Update with command line arguments
-        self.model_dir = Path(args.model_dir)
+        self.base_model_dir = Path(args.model_dir)
+        self.peft_method = args.peft_method
+        self.fold = args.fold
+        
+        # Construct specific model directory and data directory based on fold
+        self.model_dir = self.base_model_dir / self.peft_method
+        self.model_file = self.model_dir / f"modelfold{self.fold}.pt"
+        
         self.pretrained_model = args.pretrained_model
-        self.data_dir = Path(args.data_dir)
+        self.data_base_dir = Path(args.data_base_dir)
+        self.data_dir = self.data_base_dir / str(self.fold + 1)  # fold 0 -> directory 1, fold 1 -> directory 2, etc.
+        
         self.batch_size = args.batch_size
         self.amp = args.amp
         self.mask_ratio = args.mask_ratio
         self.n_bins = args.n_bins
         self.include_zero_gene = args.include_zero_gene
-        self.peft_strategies = args.peft_strategies
+        
+        # Extract PEFT strategies from method name
+        # e.g., "peft_NSCLC_ENCODER_TOKEN_PREFIX_LORA" -> ["ENCODER", "TOKEN", "PREFIX", "LORA"]
+        method_parts = self.peft_method.split('_')[2:]  # Remove "peft_NSCLC" prefix
+        self.peft_strategies = method_parts if method_parts else args.peft_strategies
+        
         self.output_dir = Path(args.output_dir)
         
         # Device configuration
@@ -154,7 +172,8 @@ class InferenceConfig:
         else:
             self.device = torch.device(args.device)
         
-        # Create output directory
+        # Create output directory with fold and method info
+        self.output_dir = self.output_dir / f"{self.peft_method}_fold{self.fold}"
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
         # Model-specific settings (consistent with training)
@@ -194,7 +213,7 @@ def load_model_and_config(config: InferenceConfig):
     
     # Load model files - check fine-tuned directory first, fallback to pretrained
     model_config_file = config.model_dir / "args.json" if (config.model_dir / "args.json").exists() else Path(config.pretrained_model) / "args.json"
-    model_file = config.model_dir / "model.pt"  # Fine-tuned model weights
+    model_file = config.model_file  # Use the specific fold model file
     vocab_file = config.model_dir / "vocab.json" if (config.model_dir / "vocab.json").exists() else Path(config.pretrained_model) / "vocab.json"
     
     if not model_file.exists():
@@ -293,8 +312,8 @@ def create_model(config: InferenceConfig, vocab, model_configs, peft_config, num
             print(f"Loading pretrained weights from {pretrained_file}")
             load_pretrained(model, torch.load(pretrained_file, map_location='cpu'), verbose=False)
     
-    # Load fine-tuned weights (PEFT-trained model)
-    model_state_file = config.model_dir / "model.pt"
+    # Load fine-tuned weights (PEFT-trained model) for specific fold
+    model_state_file = config.model_file
     if model_state_file.exists():
         print(f"Loading fine-tuned weights from {model_state_file}")
         state_dict = torch.load(model_state_file, map_location='cpu')
@@ -331,13 +350,11 @@ def load_and_preprocess_data(config: InferenceConfig, vocab):
     
     # Load test data (same structure as training)
     if config.dataset_name == "NSCLC":
-        # Look for available test files
-        test_files = list(config.data_dir.glob("NSCLC_test*.h5ad"))
-        if not test_files:
-            raise FileNotFoundError(f"No NSCLC test files found in {config.data_dir}")
+        # Construct test file name based on fold
+        test_file = config.data_dir / f"NSCLC_test{config.fold + 1}.h5ad"
+        if not test_file.exists():
+            raise FileNotFoundError(f"NSCLC test file not found: {test_file}")
         
-        # Use the first available test file
-        test_file = test_files[0]
         print(f"Using test file: {test_file}")
         
         adata_test = sc.read(test_file)
@@ -884,7 +901,10 @@ def main():
     
     # Print configuration summary
     print(f"Starting inference with configuration:")
+    print(f"  PEFT method: {config.peft_method}")  # PEFT method being used
+    print(f"  Fold: {config.fold}")  # Current fold
     print(f"  Model directory: {config.model_dir}")  # Path to trained model
+    print(f"  Model file: {config.model_file}")  # Specific model file
     print(f"  Data directory: {config.data_dir}")  # Path to test data
     print(f"  PEFT strategies: {config.peft_strategies}")  # PEFT methods used
     print(f"  Device: {config.device}")  # Computation device (GPU/CPU)
