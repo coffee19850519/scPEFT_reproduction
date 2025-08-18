@@ -45,7 +45,7 @@ python Reproduction_Identification_scFoundation.py \
 
 ### Integrate with new PEFT techniques
 
-run the Reproduction_Identification.py
+run the `Reproduction_Identification.py`:
 ```
 python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification \
         --peft_type HRA # HRA or OFT
