@@ -62,16 +62,16 @@ python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpo
 The script is `script/gene_cls_clean.py`. To run the script:
 ```
 python -u gene_cls_clean.py \
-    --dataset_name "$DATASET_NAME" \
+    --dataset_name "$DATASET_NAME" \   # bivalent_promoters/N1_network/tf_regulatory_range
     --output_root "$OUTPUT_PATH" \
-    --prompt_type "$PROMPT_TYPE" \
+    --prompt_type "$PROMPT_TYPE" \  # encoder_prompt/lora/prefix_prompt/Gene_token_prompt/normal_finetune
     --ce_weights 7,1
 ```
-| Dataset | Model checkpoints (5 folds) | Data download                                              |            
-| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| bivalent_promoters   | [Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5FGeneformer%5Fcheckpoints%2FTF%20identification%2FBivalent%5Fpromoter&ga=1) |[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2FBivalent%5Fpromoter&ga=1)|
-|N1_network|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5FGeneformer%5Fcheckpoints%2FTF%20identification%2FNOTCH1%5Fnetwork&ga=1)|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2FNOTCH1%5Fnetwork&ga=1)|
-|tf_regulatory_range|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5FGeneformer%5Fcheckpoints%2FTF%20identification%2Flong%5Frange%5FTF&ga=1)|[Link](https://mailmissouri-my.sharepoint.com/personal/hefe_umsystem_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhefe%5Fumsystem%5Fedu%2FDocuments%2FscPEFT%5Fdatasets%2FTF%20identification%2Flong%5Frange%5FTF&ga=1)|
+| Dataset | Model checkpoints (5 folds)                                                                                                                                                                                                               | 5-fold split Data download                                                                                                                                                                                                  |            
+| ------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bivalent_promoters   | Token(default) &#124; Prefix &#124; LoRA &#124; Encoder &#124; Finetune                                                                                                                                                                   | [Link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EsGaz8SjoS1PoxL_EQkunFQBKejUajFHmaBjVKF18ZJJIg?e=BxIc9g) |
+|N1_network| Token(default) &#124; Prefix &#124; LoRA &#124; Encoder &#124; Finetune    | [Link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EszQVMgBdLdKtK_j2V3OFIMBAdotKUSQyHdUeegOHMsY-w?e=JPrkcs)    |
+|tf_regulatory_range| Token(default) &#124; Prefix &#124; LoRA &#124; Encoder &#124; Finetune   | [Link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Eq0WPoUK_BJLiQjgQZBbPT8BlgTx1P2PIE7GZWgMDgD22A?e=sIAABO)   |
 
 
 

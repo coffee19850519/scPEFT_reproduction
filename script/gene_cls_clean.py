@@ -567,7 +567,7 @@ parser.add_argument("--n_folds",   type=int, default=5)
 
 parser.add_argument("--prompt_type", 
                     choices=["encoder_prompt", "lora", "prefix_prompt", "Gene_token_prompt", "normal_finetune"],
-                    default="encoder_prompt",
+                    default="Gene_token_prompt",
                     help="Type of training method: encoder_prompt, lora, prefix_prompt, Gene_token_prompt, or normal_finetune")
 parser.add_argument("--freeze_layers", type=int, default=4,
                     help="Number of first encoder layers to freeze during normal_finetune. E.g., 3 means freeze layers 0,1,2. Default 0 means no freezing")
