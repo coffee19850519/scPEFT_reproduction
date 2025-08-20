@@ -64,8 +64,7 @@ The script is `script/gene_cls_clean.py`. To run the script:
 python -u gene_cls_clean.py \
     --dataset_name "$DATASET_NAME" \   # bivalent_promoters/N1_network/tf_regulatory_range
     --output_root "$OUTPUT_PATH" \
-    --prompt_type "$PROMPT_TYPE" \  # encoder_prompt/lora/prefix_prompt/Gene_token_prompt/normal_finetune
-    --ce_weights 7,1
+    --prompt_type "$PROMPT_TYPE"  # encoder_prompt/lora/prefix_prompt/Gene_token_prompt/normal_finetune
 ```
 | Dataset | Model checkpoints (5 folds)                                                                                                                                                                                                               | 5-fold split Data download                                                                                                                                                                                                  |            
 | ------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
