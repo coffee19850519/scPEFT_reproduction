@@ -581,7 +581,7 @@ parser.add_argument("--focal_alpha", type=float, default=0.25,
                     help="Alpha parameter for focal loss (default: 0.25)")
 parser.add_argument("--focal_gamma", type=float, default=2.0,
                     help="Gamma parameter for focal loss (default: 2.0)")
-parser.add_argument("--ce_weights", type=str, default=None,
+parser.add_argument("--ce_weights", type=str, default='7,1',
                     help="Comma-separated list of class weights for CrossEntropyLoss (e.g., '0.5,2.0,1.5') or None to auto-calculate")
 
 # args = parser.parse_args('')
