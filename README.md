@@ -83,7 +83,7 @@ The script is `script/Reproduction_CellPopulationDiscovery.py`. To run the scrip
     python Reproduction_CellPopulationDiscovery.py \
      --dataset_name lung_cancer    \  # Dataset name
      --load_model ./save/lung_cancer \  # Path to load the model checkpoint
-     --data_path ./data/             \  # Path to load the model checkpoint
+     --data_path ./data/             \  # Path to data file
      --peft_type Encoder_adapter        # Encoder_adapter/ Token_adapter / Prefix / LoRA / finetune
 
 ```
