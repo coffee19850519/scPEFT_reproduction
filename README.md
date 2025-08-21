@@ -47,7 +47,10 @@ python Reproduction_Identification_scFoundation.py \
 
 run the `Reproduction_Identification.py`:
 ```
-python  Reproduction_Identification.py --dataset_name ms --model_path ../checkpoint/celltype_identification --data_path ../data/celltype_identification \
+python  Reproduction_Identification.py \
+        --dataset_name ms \ # ms/NSLCL/COVID
+        --model_path ../checkpoint/celltype_identification \ # path to the model checkpoint file
+        --data_path ../data/celltype_identification \  # path to the data file
         --peft_type HRA # HRA or OFT
 ```
 | Dataset | Adapter model checkpoints                                                                                                         | Data download                                                                                                                            |
@@ -116,17 +119,36 @@ The script is `multi_peft_support/tutorial_peft/inference_cell_type.py`. To run 
 
 ### Hyperparameter sensitivity on cell type identification
 
-:soon: Coming soon
+To reproduce the results, run the `Reproduction_Identification.py` script:
+
+```
+python  Reproduction_Identification.py \
+        --dataset_name NSCLC        \ # COVID/NSCLC 
+        --model_path ../checkpoint/ \ # path to the model checkpoint file
+        --data_path ../data/        \ # path to the data file
+        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+
+```
 
 | Dataset | Model checkpoints across all tested hyperparameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Data Downliad Link                                                                                                                      |
 |-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| NSCLC | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkjJJPLZMd1HrKkq4rv1B04BDFhtTet6nDjsJ0WZf9a-Wg?e=GnpevJ) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ety5F9cRCdNGv1M2sL12sNQBpXq5jjsw1yjSnYLIDKHriw?e=rYKeG2) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EqTOk10oaP1OkQ93hBNBm00Bb1mKtebxBtTkA4Fj30ieZA?e=G9aJko) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkpU4RkVbMJBqoRBxB1AY8cBGGVrSWAfwwHdpnAEjCAoqQ?e=vUOBpI) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EtITDWrq5Q1CoRgpf_2lXY8BfJD7MeM_iPgoBhww_-nB9g?e=dgEghu) |
-| COVID | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EuL2bdEe-TdGsTWe4VI6icMBCpcHuo-BBPo4BfrKywwQcw?e=BDRRaS) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhaNF3IGF75FhHiKEp9_788BDMk3XcOSKLc4TS7YmUsc4Q?e=hRo7VE) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhLxkkdy7FtCtvBPgiwSvEMBqfMaxL2R3QMCKXxBnhBBMQ?e=yECpNu) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkeRU8OZtWVJqkK32xdB5bQBcB_ekorW3GX-S3meKW9OuA?e=34vCMg) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EopHPawZEStOnbyAARakhAsBNSS7wIjjfnCxyCn9RQPdZw?e=GxON87) |
+| NSCLC | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkjJJPLZMd1HrKkq4rv1B04BDFhtTet6nDjsJ0WZf9a-Wg?e=GnpevJ) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ety5F9cRCdNGv1M2sL12sNQBpXq5jjsw1yjSnYLIDKHriw?e=rYKeG2) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EqTOk10oaP1OkQ93hBNBm00Bb1mKtebxBtTkA4Fj30ieZA?e=G9aJko) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkpU4RkVbMJBqoRBxB1AY8cBGGVrSWAfwwHdpnAEjCAoqQ?e=vUOBpI) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ei2kszffSDJPgEuHJ5Fs7YMBhlYMKK-dUKEg6jTgkWNrDA?e=akbFGP) |
+| COVID | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EuL2bdEe-TdGsTWe4VI6icMBCpcHuo-BBPo4BfrKywwQcw?e=BDRRaS) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhaNF3IGF75FhHiKEp9_788BDMk3XcOSKLc4TS7YmUsc4Q?e=hRo7VE) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EhLxkkdy7FtCtvBPgiwSvEMBqfMaxL2R3QMCKXxBnhBBMQ?e=yECpNu) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EkeRU8OZtWVJqkK32xdB5bQBcB_ekorW3GX-S3meKW9OuA?e=34vCMg) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EvkFB2RtP1xJkngvTZStmJEBji4Ss0UixIjYYCe5iLYljQ?e=PVS6A6) |
 
 
 ### Hyperparameter sensitivity on batch effect correction
 
-:soon: Coming soon
+To reproduce the results, run the `Reproduction_BatchCorrection.py` script:
+```
+
+python  Reproduction_BatchCorrection.py  
+        --dataset_name PBMC_10K        \ # PBMC_10K/covid_subsampled/Perirhinal_Cortex 
+        --model_path ../checkpoint/ \ # path to the model checkpoint file
+        --data_path ../data/        \ # path to the data file
+        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+
+```
+
 
 | Dataset           | Model checkpoints across all tested hyperparameters | Data Download Link |
 |-------------------| ----------------------------------------------------|--------------------|
@@ -136,9 +158,32 @@ The script is `multi_peft_support/tutorial_peft/inference_cell_type.py`. To run 
 
 ### Hyperparameter sensitivity on perturbation response prediction
 
-:soon: Coming soon
+To reproduce the results, run the `Reproduction_Perturbation.py` script for Norman and Adamson datasets:
+```
 
- ｜ Dataset     | Model checkpoints across all tested hyperparameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Data Download Link |
+python  Reproduction_Perturbation.py  
+        --dataset_name adamson        \ # adamson/norman 
+        --model_path ../checkpoint/ \ # path to the model checkpoint file
+        --data_path ../data/        \ # path to the data file
+        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+
+```
+or
+
+run the `Reproduction_Perturbation_Replogle.py` script for Replogle_k562 and Replogle_rpe1 datasets:
+
+```
+
+python  Reproduction_Perturbation_Replogle.py  
+        --dataset_name Replogle_k562        \ #  Replogle_k562/Replogle_rpe1
+        --model_path ../checkpoint/ \ # path to the model checkpoint file
+        --data_path ../data/        \ # path to the data file
+        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+
+```
+
+
+|  Dataset      | Model checkpoints across all tested hyperparameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Data Download Link |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | Norman        | [Encoder](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EiqvdBNxFHJGiNiUaQs0ZGkBUfUBPNaKonRImUCVxvLO3w?e=JMesiW) &#124; [Token](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EivQ52TUDVRMsBjBz-Po81YByI8Mgq2ieeHVXGDsWkfeZQ?e=JkYv0x) &#124; [LoRA](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EvGLLJUlxe9Jse2B2CdfW2UBbSs7i-UnEf-cfhDpkf1XUQ?e=OmPAS9) &#124; [Prefix](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Eq6qFEJ11_VBqTQsjx46bFMB6otg1iM26XCiVkWpyPlY8g?e=ul76Xe) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Em7ivdCFPbJClM7psJJ10FcBB-dUo215Wfq0_bplXZ8WRQ?e=wLAZR8) |
 | Adamson       | Encoder &#124; Token &#124; LoRA &#124; Prefix                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ei0zoMTWjA9JpAry9j3JzmwBOmvow3jYWMr2PRAeB0U0Lg?e=b1xkxf) |
