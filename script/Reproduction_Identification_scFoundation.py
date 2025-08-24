@@ -362,7 +362,7 @@ if __name__=='__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(device)
 
-    gene_list_df = pd.read_csv('./OS_scRNA_gene_index.19264.tsv', header=0, delimiter='\t')
+    gene_list_df = pd.read_csv('scfoundation/annotation/OS_scRNA_gene_index.19264.tsv', header=0, delimiter='\t')
     gene_list = list(gene_list_df['gene_name'])
 
     # Load data
