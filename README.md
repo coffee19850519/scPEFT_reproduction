@@ -119,14 +119,16 @@ The script is `multi_peft_support/tutorial_peft/inference_cell_type.py`. To run 
 
 ### Hyperparameter sensitivity on cell type identification
 
-To reproduce the results, run the `Reproduction_Identification.py` script:
+To reproduce the results, run the `Hyperparameter/tutorial_peft/inference_cell_type.py` script:
 
 ```
-python  Reproduction_Identification.py \
-        --dataset_name NSCLC        \ # COVID/NSCLC 
-        --model_path ../checkpoint/ \ # path to the model checkpoint file
-        --data_path ../data/        \ # path to the data file
-        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+python inference_cell_type.py \
+    --model_path ../checkpoint/NSCLC/ENCODER/model_hidden256.pt \ # Path to load the model checkpoint
+    --data_path ../data \ # Path to data file
+    --dataset_name NSCLC \ # Dataset name
+    --batch_size 64 \ # batch_size
+    --save_results \
+    --output_dir ../cell_type_results # Path to save dir
 
 ```
 
@@ -138,14 +140,16 @@ python  Reproduction_Identification.py \
 
 ### Hyperparameter sensitivity on batch effect correction
 
-To reproduce the results, run the `Reproduction_BatchCorrection.py` script:
+To reproduce the results, run the `Hyperparameter/tutorial_peft/inference_batch_correction.py` script:
 ```
 
-python  Reproduction_BatchCorrection.py  
-        --dataset_name PBMC_10K        \ # PBMC_10K/covid_subsampled/Perirhinal_Cortex 
-        --model_path ../checkpoint/ \ # path to the model checkpoint file
-        --data_path ../data/        \ # path to the data file
-        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+python inference_batch_correction.py \
+    --model_path ../checkpoint/PBMC_10K/LORA/64/best_model.pt \  # Path to load the model checkpoint
+    --dataset_name PBMC_10K \ # Dataset name
+    --data_dir ../data/batch_correction \ # Path to data file
+    --batch_size 32 \ # batch_size
+    --save_results \ 
+    --output_dir ../batch_correction_results # Path to save dir
 
 ```
 
@@ -158,28 +162,28 @@ python  Reproduction_BatchCorrection.py
 
 ### Hyperparameter sensitivity on perturbation response prediction
 
-To reproduce the results, run the `Reproduction_Perturbation.py` script for Norman and Adamson datasets:
+To reproduce the results, run the `Hyperparameter/tutorial_peft/inference_perturbation.py` script for Norman and Adamson datasets:
 ```
 
-python  Reproduction_Perturbation.py  
-        --dataset_name adamson        \ # adamson/norman 
-        --model_path ../checkpoint/ \ # path to the model checkpoint file
-        --data_path ../data/        \ # path to the data file
-        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
+python inference_perturbation.py \
+    --model_path ../checkpoint/norman/PREFIX/perturb8/best_model.pt \ # Path to load the model checkpoint
+    --data_name norman \ # Dataset name adamson/norman 
+    --data_dir ./data \ # Path to data file
+    --save_results \
+    --output_dir ../perturbation_results # Path to save dir
 
 ```
 or
 
-run the `Reproduction_Perturbation_Replogle.py` script for Replogle_k562 and Replogle_rpe1 datasets:
+run the `Hyperparameter/tutorial_peft/inference_replogle_perturbation.py` script for Replogle_k562 and Replogle_rpe1 datasets:
 
 ```
-
-python  Reproduction_Perturbation_Replogle.py  
-        --dataset_name Replogle_k562        \ #  Replogle_k562/Replogle_rpe1
-        --model_path ../checkpoint/ \ # path to the model checkpoint file
-        --data_path ../data/        \ # path to the data file
-        --peft_type Encoder_adapter   # Encoder_adapter/ Token_adapter / Prefix / LoRA
-
+python inference_replogle_perturbation.py \
+    --model_path ../checkpoint/replogle_k562/TOKEN/perturb0.125/best_model.pt \ # Path to load the model checkpoint
+    --data_name replogle_k562_essential \ # Dataset name Replogle_k562/Replogle_rpe1
+    --data_dir ../data \ # Path to data file
+    --save_results \
+    --output_dir ../replogle_results # Path to save dir
 ```
 
 

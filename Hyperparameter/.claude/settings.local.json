@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/c/Users/wxy/Desktop/esmc/scPEFT_reproduction/script/**)",
+      "Read(//mnt/c/Users/wxy/Desktop/esmc/ENCODER/**)",
+      "Bash(python:*)",
+      "Read(//mnt/c/Users/wxy/Desktop/esmc/**)",
+      "Read(//mnt/c/Users/wxy/Desktop/esmc/**)",
+      "Read(/mnt/c/Users/wxy/Desktop/esmc/**)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "outputStyle": "laowang-engineer"
+}
