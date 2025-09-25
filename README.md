@@ -8,6 +8,22 @@ Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffe
 
 Here are the added reproductions for the revised manuscript.
 
+### Perturbation prediction with linear model
+Run the `perturbation_linear/run_linear_pretrained_model.R`:
+```
+Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \ 
+    --dataset_name replogle_rpe1_essential \ # The name of the dataset
+    --test_train_config_id replogle_rpe1_essential_simulation_1_0.75 \ # The ID of the test/train/holdout run
+    --result_id rpe1_linear_results # The result_id
+```
+Then, run the `perturbation_linear/calculate_metric.py` to calculate the metric:
+```
+python perturbation_linear/calculate_metric.py  \ 
+    --dataset_path data/gears_pert_data/ \  # The path of dataset folder
+    --dataset_name replogle_rpe1_essential \  # The name of dataset
+    --results_path results/replogle_rpe1_essential_linear_results/all_predictions.json  # the path of linear model results
+```
+
 ### Cell type identification with scFoundation backbone
 
 Run the `script/Reproduction_Identification_scFoundation.py`:
