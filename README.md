@@ -8,7 +8,10 @@ Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffe
 
 Here are the added reproductions for the revised manuscript.
 
-### Perturbation prediction with linear model
+### :exclamation: 9/25/2025 Update: Perturbation prediction with linear model
+
+Please refer to this [link](https://github.com/const-ae/linear_perturbation_prediction-Paper) to install all dependencies in the R environment.
+
 Run the `perturbation_linear/run_linear_pretrained_model.R`:
 ```
 Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \ 
@@ -16,6 +19,11 @@ Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \
     --test_train_config_id replogle_rpe1_essential_simulation_1_0.75 \ # The ID of the test/train/holdout run
     --result_id rpe1_linear_results # The result_id
 ```
+
+| Dataset name | Adamson | Norman | Replogle_k562_essential | Replogle_rpe1_essential |
+| ---- | ---- | ---- | ---- | ---- |
+| Download | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Ei0zoMTWjA9JpAry9j3JzmwBOmvow3jYWMr2PRAeB0U0Lg?e=GK3LCB) | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Em7ivdCFPbJClM7psJJ10FcBB-dUo215Wfq0_bplXZ8WRQ?e=JGDyjj) for scGPT split [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Er21jjudjGZBlYmGDyxA0U4B1QfRUlMVZhde9xZm1lxb6g?e=ylhhfP) for scFoundation split| [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/El1zppwEcQ5DnKC1Z70xHcIBkSwS5Z3bFjYtSazCvMZTqw?e=8v4Lrh) for scGPT split [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/EmLySBCjVqFGiHffnaGZYTABM8w-2A_UcOrbgPFdiJvRSg?e=heBfAA) for scFoundation split | [link](https://mailmissouri-my.sharepoint.com/:f:/g/personal/hefe_umsystem_edu/Elt8Cilk-jtJgE1OEMBnQfcBOGw8Y12Cut2L9CizgLQBLw?e=W7R1hr) | 
+
 Then, run the `perturbation_linear/calculate_metric.py` to calculate the metric:
 ```
 python perturbation_linear/calculate_metric.py  \ 
