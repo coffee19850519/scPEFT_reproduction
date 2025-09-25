@@ -9,23 +9,30 @@ import argparse
 import os
 import session_info
 import torch
+import argparse
 from sklearn.metrics import mean_squared_error as mse
 from sklearn.metrics import mean_absolute_error as mae
 from scipy.stats import pearsonr, spearmanr
 from gears.inference import evaluate, compute_metrics, deeper_analysis, \
                   non_dropout_analysis
 
+parser = argparse.ArgumentParser(description='Calculate metric')
+parser.add_argument('--dataset_path', type=str, default= "data/gears_pert_data/", help='The path of dataset')
+parser.add_argument('--dataset_name', type=str, default= "replogle_rpe1_essential", required = True, help='The name of dataset')
+parser.add_argument("--resluts_path", type=str, default= "results/replogle_rpe1_essential_linear_results/all_predictions.json", required = True, help = "the path of linear model results.")
+args = parser.parse_args()
+
 
 # perturbation data path
-pert_data_folder = Path("data/gears_pert_data/")
+pert_data_folder = Path(args.dataset_path)
 pert_data = PertData(pert_data_folder)
-pert_data.load(data_path = "data/gears_pert_data/replogle_rpe1_essential" )
+pert_data.load(data_path = args.dataset_path+args.dataset_name)
 adata = pert_data.adata
 pert_data.prepare_split(split = 'simulation', seed = 1, train_gene_set_size=0.75)
 pert_data.get_dataloader(batch_size =1 , test_batch_size = 1)
 
 # linear prediction results
-with open("results/replogle_rpe1_essential_linear_results/all_predictions.json", "r") as f:
+with open(args.resluts_path, "r") as f:
     predictions = json.load(f)
 
 def evaluate(loader,  uncertainty):
