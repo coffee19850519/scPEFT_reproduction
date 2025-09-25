@@ -3,6 +3,7 @@ library(tidyverse)
 
 
 pa <- argparser::arg_parser("Run linear pretrained model")
+pa <- argparser::add_argument(pa, "--dataset_dir", type = "character", default = 'data/gears_pert_data', help = "The name of the dataset") 
 pa <- argparser::add_argument(pa, "--dataset_name", type = "character", default = 'replogle_rpe1_essential', help = "The name of the dataset") 
 pa <- argparser::add_argument(pa, "--test_train_config_id", type = "character", default = 'replogle_rpe1_essential_simulation_1_0.75', help = "The ID of the test/train/holdout run") 
 pa <- argparser::add_argument(pa, "--pca_dim", type = "integer", default = 10, nargs = 1, help = "The number of PCA dimensions")
@@ -12,15 +13,14 @@ pa <- argparser::add_argument(pa, "--seed", type = "integer", default = 1, nargs
 pa <- argparser::add_argument(pa, "--gene_embedding", type = "character", default = "training_data", help = "The path to a tsv with a gene embedding or the string 'training_data'")
 pa <- argparser::add_argument(pa, "--pert_embedding", type = "character", default = "training_data", help = "The path to a tsv with a perturbation embedding or the string 'training_data'")
 
-pa <- argparser::add_argument(pa, "--working_dir", type = "character", default = "./", help = "The directory that contains the params, results, scripts etc.")
-pa <- argparser::add_argument(pa, "--result_id", type = "character", default = "rpe1_linear_results", help = "The result_id")
+pa <- argparser::add_argument(pa, "--results_dir", type = "character", default = "results/", help = "The directory that contains the params, results, scripts etc.")
 pa <- argparser::parse_args(pa)
 
 
 print(pa)
 set.seed(pa$seed)
 
-out_dir <- file.path(pa$working_dir, "results/", pa$result_id)
+out_dir <- file.path(pa$results_dir)
 # ---------------------------------------
 
 solve_y_axb <- function(Y, A = NULL, B = NULL, A_ridge = 0.01, B_ridge = 0.01){
@@ -51,9 +51,8 @@ solve_y_axb <- function(Y, A = NULL, B = NULL, A_ridge = 0.01, B_ridge = 0.01){
 
 
 # Load data
-folder <- "data/gears_pert_data"
+folder <- file.path(pa$dataset_dir)
 sce <- zellkonverter::readH5AD(file.path(folder, pa$dataset_name, "perturb_processed.h5ad"))
-#set2condition <- rjson::fromJSON(file = file.path(pa$working_dir, "results", "seed_1_adamson_split"))
 set2condition <- rjson::fromJSON(file = file.path(pa$working_dir, "results", pa$test_train_config_id))
 if(! "ctrl" %in% set2condition$train){
   set2condition$train <- c(set2condition$train, "ctrl")
