@@ -19,13 +19,13 @@ from gears.inference import evaluate, compute_metrics, deeper_analysis, \
 # perturbation data path
 pert_data_folder = Path("data/gears_pert_data/")
 pert_data = PertData(pert_data_folder)
-pert_data.load(data_path = "data/gears_pert_data/adamson" )
+pert_data.load(data_path = "data/gears_pert_data/replogle_rpe1_essential" )
 adata = pert_data.adata
 pert_data.prepare_split(split = 'simulation', seed = 1, train_gene_set_size=0.75)
 pert_data.get_dataloader(batch_size =1 , test_batch_size = 1)
 
 # linear prediction results
-with open("results/adamson_linear_results/all_predictions.json", "r") as f:
+with open("results/replogle_rpe1_essential_linear_results/all_predictions.json", "r") as f:
     predictions = json.load(f)
 
 def evaluate(loader,  uncertainty):
