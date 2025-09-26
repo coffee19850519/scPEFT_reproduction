@@ -14,10 +14,11 @@ Please refer to this [link](https://github.com/const-ae/linear_perturbation_pred
 
 Run the `perturbation_linear/run_linear_pretrained_model.R`:
 ```
-Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \ 
+Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \
+    --dataset_dir data/gears_pert_data \ # The path of the dataset
     --dataset_name replogle_rpe1_essential \ # The name of the dataset
-    --test_train_config_id replogle_rpe1_essential_simulation_1_0.75 \ # The ID of the test/train/holdout run
-    --result_id rpe1_linear_results # The result_id
+    --split_json data/gears_pert_data/replogle_rpe1_essentia/replogle_rpe1_essential_simulation_1_0.75 \ # The path of split json file
+    --results_dir rpe1_linear_results # The path of results
 ```
 
 | Dataset name | Adamson | Norman | Replogle_k562_essential | Replogle_rpe1_essential |
