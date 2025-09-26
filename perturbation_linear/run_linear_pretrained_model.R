@@ -53,7 +53,7 @@ solve_y_axb <- function(Y, A = NULL, B = NULL, A_ridge = 0.01, B_ridge = 0.01){
 # Load data
 folder <- file.path(pa$dataset_dir)
 sce <- zellkonverter::readH5AD(file.path(folder, pa$dataset_name, "perturb_processed.h5ad"))
-set2condition <- rjson::fromJSON(file = file.path(pa$working_dir, "results", pa$test_train_config_id))
+set2condition <- rjson::fromJSON(file = file.path(pa$split_json))
 if(! "ctrl" %in% set2condition$train){
   set2condition$train <- c(set2condition$train, "ctrl")
 }
