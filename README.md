@@ -8,7 +8,7 @@ Fine-Tuning using scPEFT**. Its official repo is [here](https://github.com/coffe
 
 Here are the added reproductions for the revised manuscript.
 
-### :exclamation: 9/25/2025 Update: Perturbation prediction with linear model
+### :exclamation: 9/25/2025 Update: Perturbation prediction with the linear model
 
 Please refer to this [link](https://github.com/const-ae/linear_perturbation_prediction-Paper/tree/main/benchmark#prepare-environments) to install all dependencies in the R environment.
 
