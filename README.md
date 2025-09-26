@@ -10,15 +10,15 @@ Here are the added reproductions for the revised manuscript.
 
 ### :exclamation: 9/25/2025 Update: Perturbation prediction with linear model
 
-Please refer to this [link](https://github.com/const-ae/linear_perturbation_prediction-Paper) to install all dependencies in the R environment.
+Please refer to this [link]([https://github.com/const-ae/linear_perturbation_prediction-Paper](https://github.com/const-ae/linear_perturbation_prediction-Paper/tree/main/benchmark#prepare-environments)) to install all dependencies in the R environment.
 
 Run the `perturbation_linear/run_linear_pretrained_model.R`:
 ```
 Rscript --no-restore perturbation_linear/run_linear_pretrained_model.R \
-    --dataset_dir data/gears_pert_data \ # The path of the dataset
-    --dataset_name replogle_rpe1_essential \ # The name of the dataset
-    --split_json data/gears_pert_data/replogle_rpe1_essentia/replogle_rpe1_essential_simulation_1_0.75 \ # The path of split json file
-    --results_dir rpe1_linear_results # The path of results
+    --dataset_dir data/perturbation \ # The path of the dataset
+    --dataset_name replogle_rpe1_essential \ # The name of the downloaded dataset
+    --split_json data/perturbation/replogle_rpe1_essential/splits/replogle_rpe1_essential_simulation_1_0.75 \ # The path of the split json file(in the downloaded dataset folder)
+    --results_dir rpe1_linear_results # The specified path of results
 ```
 
 | Dataset name | Adamson | Norman | Replogle_k562_essential | Replogle_rpe1_essential |
@@ -29,8 +29,8 @@ Then, run the `perturbation_linear/calculate_metric.py` to calculate the metric:
 ```
 python perturbation_linear/calculate_metric.py  \ 
     --dataset_path data/gears_pert_data/ \  # The path of dataset folder
-    --dataset_name replogle_rpe1_essential \  # The name of dataset
-    --results_path results/replogle_rpe1_essential_linear_results/all_predictions.json  # the path of linear model results
+    --dataset_name replogle_rpe1_essential \  # The name of the downloaded dataset
+    --results_path results/replogle_rpe1_essential_linear_results/all_predictions.json  # the specified path of linear model results
 ```
 
 ### Cell type identification with scFoundation backbone
