@@ -10,7 +10,7 @@ Here are the added reproductions for the revised manuscript.
 
 ### :exclamation: 9/25/2025 Update: Perturbation prediction with linear model
 
-Please refer to this [link]([https://github.com/const-ae/linear_perturbation_prediction-Paper](https://github.com/const-ae/linear_perturbation_prediction-Paper/tree/main/benchmark#prepare-environments)) to install all dependencies in the R environment.
+Please refer to this [link](https://github.com/const-ae/linear_perturbation_prediction-Paper/tree/main/benchmark#prepare-environments) to install all dependencies in the R environment.
 
 Run the `perturbation_linear/run_linear_pretrained_model.R`:
 ```
